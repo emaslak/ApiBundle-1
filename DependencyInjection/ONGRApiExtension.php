@@ -35,6 +35,7 @@ class ONGRApiExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
+        $container->setParameter('ongr_api.api_prefix', $config['api_prefix']);
         $container->setParameter('ongr_api.versions', array_keys($config['versions']));
         foreach ($config['versions'] as $versionName => $version) {
             foreach ($version['endpoints'] as $endpointName => $endpoint) {

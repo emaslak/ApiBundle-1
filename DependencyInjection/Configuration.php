@@ -29,6 +29,9 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('api_prefix')
+                    ->defaultValue('')
+                ->end()
                 ->arrayNode('versions')
                     ->isRequired()
                     ->requiresAtLeastOneElement()
